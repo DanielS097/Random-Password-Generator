@@ -136,7 +136,43 @@ function generatePassword() {
     }
 
     return password;
-}
+};
+
+
+const generateBtn = document.querySelector('#generate');
+const passwordText = document.querySelector('#password');
+
+
+function writePassword() {
+    length = prompt("Please select the lenght of your password, between 8 and 128 characters.");
+    if (length !== null) {
+        if (length > 128) {
+            tooLong = alert("Character choice is too long, please choose between 8 and 128");
+            writePassword();
+        };
+        if (length < 8) {
+            tooShort = alert("Character choice is too short, please choose between 8 and 128");
+            writePassword();
+        }
+        upperCase = confirm("Would you like uppercase characters in your password?");
+        lowerCase = confirm("Would you like lowercase characters in your password?");
+        numbers = confirm("Would you like numbers characters in your password?");
+        specialChars = confirm("Would you like special characters in your password?");
+    };
+
+    const password = generatePassword();
+    const passwordText = document.querySelector('#password');
+    console.log(length);
+    console.log(upperCase);
+    console.log(lowerCase);
+    console.log(numbers);
+    console.log(specialChars);
+
+    passwordText.value = password;
+};
+
+// Add event listener to generate button
+generateBtn.addEventListener('click', writePassword);
 
 
 
