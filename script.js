@@ -115,6 +115,28 @@ function getRandom(arr) {
 
 };
 
+function generatePassword() {
+    let password = '';
+    const selectedSets = [];
+
+    if (upperCase) selectedSets.push(upperCasedCharacters);
+    if (lowerCase) selectedSets.push(lowerCasedCharacters);
+    if (numbers) selectedSets.push(numericCharacters);
+    if (specialChars) selectedSets.push(specialCharacters);
+
+    if (selectedSets.length === 0) {
+        alert("Please select at least one character set.");
+        return '';
+    }
+
+    for (let i = 0; i < length; i++) {
+        const selectedSet = selectedSets[Math.floor(Math.random() * selectedSets.length)];
+        const randomChar = selectedSet[Math.floor(Math.random() * selectedSet.length)];
+        password += randomChar;
+    }
+
+    return password;
+}
 
 
 
