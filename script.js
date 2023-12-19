@@ -99,11 +99,13 @@ let password;
 let i;
 let randomIndex;
 let randomCharacter;
+
 // Function to prompt user for password options
 function getPasswordOptions() {
-     length = prompt("Please select the lenght of your password, between 8 and 128 characters.");
+   length = prompt("Please select the lenght of your password, between 8 and 128 characters.");
     
 };
+
 
 function getRandom(arr) {
     password = '';
@@ -115,6 +117,7 @@ function getRandom(arr) {
 
 };
 
+
 function generatePassword() {
     let password = '';
     const selectedSets = [];
@@ -123,11 +126,6 @@ function generatePassword() {
     if (lowerCase) selectedSets.push(lowerCasedCharacters);
     if (numbers) selectedSets.push(numericCharacters);
     if (specialChars) selectedSets.push(specialCharacters);
-
-    if (selectedSets.length === 0) {
-        alert("Please select at least one character set.");
-        return '';
-    }
 
     for (let i = 0; i < length; i++) {
         const selectedSet = selectedSets[Math.floor(Math.random() * selectedSets.length)];
@@ -140,7 +138,6 @@ function generatePassword() {
 
 
 const generateBtn = document.querySelector('#generate');
-const passwordText = document.querySelector('#password');
 
 
 function writePassword() {
