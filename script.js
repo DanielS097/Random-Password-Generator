@@ -105,6 +105,17 @@ function getPasswordOptions() {
     
 };
 
+function getRandom(arr) {
+    password = '';
+    for (i = 0; i < length; i++);
+    randomIndex = Math.floor(Math.random() * arr.length);
+    randomCharacter = arr[randomIndex];
+    password += randomCharacter;
+    return password;
+
+};
+
+
 
 
 
